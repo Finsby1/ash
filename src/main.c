@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     }else if (strncmp(command, "echo ", 5) == 0){
       printf("%s\n", command + 5);
     
-    }else if (strcmp(command, "type ") == 0){
+    }else if (strcmp(command, "type ", 5) == 0){
       char *args = command + 5;
 
       if (strcmp(arg, "echo") == 0 || strcmp(arg, "exit") == 0 || strcmp(arg, "type") == 0){
