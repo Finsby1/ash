@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
       printf("%s\n", command + 5);
     
     }else if (strcmp(command, "type ", 5) == 0){
-      char *args = command + 5;
+      char *arg = command + 5;
 
       if (strcmp(arg, "echo") == 0 || strcmp(arg, "exit") == 0 || strcmp(arg, "type") == 0){
         printf("%s: is a shell builtin\n", arg);
