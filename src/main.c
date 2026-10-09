@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
       if (strcmp(arg, "echo") == 0 || strcmp(arg, "exit") == 0 || strcmp(arg, "type") == 0){
         printf("%s: is a shell builtin\n", arg);
       } else{
-        printf("type: '%s' not found\n", arg)
+        printf("type: '%s' not found\n", arg);
       }
 
     }else {
