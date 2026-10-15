@@ -17,7 +17,7 @@ void handle_type(char *command) {
   char *PATH = strdup(getenv("PATH"));
   for (char *p = strtok(PATH, ":"); p != NULL; p = strtok(NULL, ":")) {
     char fp[1028];
-    sprintf(fp, "%s/%s", p, command);
+    printf(fp, "%s/%s", p, command);
     if (access(fp, X_OK) == 0) {
       printf("%s is %s\n", command, fp);
       return;
