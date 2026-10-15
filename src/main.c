@@ -3,10 +3,6 @@
 #include <string.h>
 #include <unistd.h>
 
-int main(int argc, char *argv[]) {
-  // Flush after every printf
-  setbuf(stdout, NULL);
-
 
   char *PATH = strdup(getenv("PATH"));
   for (char *p = strtok(PATH, ":"); p != NULL; p = strtok(NULL, ":")) {
@@ -17,7 +13,10 @@ int main(int argc, char *argv[]) {
       return;
     }
   }
-  
+
+int main(int argc, char *argv[]) {
+  // Flush after every printf
+  setbuf(stdout, NULL);
 
   while(1){
     printf("$ ");
