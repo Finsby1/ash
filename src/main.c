@@ -1,8 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 
+
+void handle_type(char *command) {
+  char *commands[] = {"exit", "echo", "type"};
+
+  for (int i = 0; i < (sizeof(commands) / 8); i++) {
+    if (strcmp(command, commands[i]) == 0) {
+      printf("%s is a shell builtin\n", command);
+      return;
+    }
+  }
 
   char *PATH = strdup(getenv("PATH"));
   for (char *p = strtok(PATH, ":"); p != NULL; p = strtok(NULL, ":")) {
@@ -13,8 +22,12 @@
       return;
     }
   }
+  printf("%s not found\n", command)
+}
+
 
 int main(int argc, char *argv[]) {
+  
   // Flush after every printf
   setbuf(stdout, NULL);
 
