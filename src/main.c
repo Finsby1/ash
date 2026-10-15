@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 
 void handle_type(char *command) {
@@ -22,7 +23,7 @@ void handle_type(char *command) {
       return;
     }
   }
-  printf("%s not found\n", command)
+  printf("%s not found\n", command);
 }
 
 
