@@ -17,7 +17,7 @@ void handle_type(char *command) {
   char *PATH = strdup(getenv("PATH"));
   for (char *p = strtok(PATH, ":"); p != NULL; p = strtok(NULL, ":")) {
     char fp[1028];
-    printf(fp, "%s/%s", p, command);
+    sprintf(fp, "%s/%s", p, command);
     if (access(fp, X_OK) == 0) {
       printf("%s is %s\n", command, fp);
       return;
@@ -47,10 +47,11 @@ int main(int argc, char *argv[]) {
       printf("%s\n", command + 5);
     
     }else if (strncmp(command, "type ", 5) == 0){
-      char *arg = command + 5;
+      handle_type(command + 5);
 
       if (strcmp(arg, "echo") == 0 || strcmp(arg, "exit") == 0 || strcmp(arg, "type") == 0){
         printf("%s is a shell builtin\n", arg);
+        
       } else{
         printf("%s: not found\n", arg);
       }
